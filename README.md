@@ -3,10 +3,6 @@ Ember-tooltips (and popovers) [![Build Status](https://travis-ci.org/sir-dunxalo
 
 Render tooltips and popovers on components and other HTML elements using HTMLBars.
 
----
-❗ **I am looking for a co-maintainer to help improve the 2.x branch and assist in bringing 3.x out of beta. If you're interested, see [#261](https://github.com/sir-dunxalot/ember-tooltips/issues/261)** ❗
----
-
 ## Installation
 
 ```
@@ -31,6 +27,7 @@ Documentation for usage is below:
 - [Testing](#testing)
   - [Test helpers](#test-helpers)
 - [Accessibility](#accessibility)
+- [Development](#development)
 
 ## 3.0.0 Beta
 
@@ -162,6 +159,7 @@ Options are set as attributes on the tooltip/popover components. Current tooltip
 - [event](#event)
 - [hideOn](#hide-on)
 - [keepInWindow](#keep-in-window)
+- [setPin](#set-pin)
 - [side](#side)
 - [showOn](#show-on)
 - [spacing](#spacing)
@@ -308,6 +306,23 @@ it will render off-screen--}}
 {{tooltip-on-component
   keepInWindow=false
   side='right'
+}}
+```
+
+#### Set pin
+
+| Type    | Boolean   |
+|---------|-----------|
+| Default | undefined |
+
+If you find that `keepInWindow` is not keeping the entire tooltip in the window, try also using `setPin`. Note that this is somewhat experimental, and may not work for all window positioning issues (see #72).
+
+```hbs
+{{!--Force the tooltip to stay fully in-screen--}}
+
+{{tooltip-on-component
+  keepInWindow=true
+  setPin=true
 }}
 ```
 
@@ -1050,6 +1065,12 @@ Additionally, the `aria-describedby`, `title`, `id`, and `role` attributes are m
 There is always room for improvement and PRs to improve accessibility are welcome.
 
 ## Development
+
+This project is maintained by:
+
+[![Duncan Walker](https://avatars1.githubusercontent.com/u/4495352?s=70&v=4)](https://github.com/sir-dunxalot) | [![Max Fierke](https://avatars3.githubusercontent.com/u/354236?s=70&v=4)](https://github.com/maxfierke) |
+--- | --- |
+[Duncan Walker](https://github.com/sir-dunxalot) | [Max Fierke](https://github.com/maxfierke) |
 
 All PRs and issues are welcome.
 
