@@ -331,7 +331,9 @@ export default EmberTetherComponent.extend({
     const _tether = this.get('_tether');
     const $tether = $(_tether.element);
 
-    this.sendAction('onRender', this);
+    if (!this.isDestroying) {
+      this.sendAction('onRender', this);
+    }
 
     $target.attr({
       'aria-describedby': `${this.get('elementId')}`,
@@ -399,7 +401,9 @@ export default EmberTetherComponent.extend({
 
     run.later(() => {
       this.positionTether();
-      this.sendAction('onRender', this);
+      if (!this.isDestroying) {
+        this.sendAction('onRender', this);
+      }
     }, this.get('_didUpdateTimeoutLength'));
   },
 
